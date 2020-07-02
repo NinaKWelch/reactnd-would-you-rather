@@ -1,24 +1,20 @@
-import React from 'react'
+import React from 'react';
 
 const LoginForm = ({ users }) => {
-    const handleSubmit = event => {
-        event.preventDefault()
+    const handleChange = event => {
         alert('Logged in as ' + event.target.value)
     }
 
     return (
-        <select name="users" onChange={handleSubmit}>
-            <option value="" selected>Select user</option>
+        <select name="users" onChange={handleChange}>
+            <option defaulvalue="true">Select user</option>
             {users.map(user => (
-                <option
-                    key={user}
-                    value={user}
-                >
-                    {user}
+                <option key={user.id} value={user.name}>
+                    {user.name}
                 </option>
             ))}
         </select>
-);
+    );
 }
 
 export default LoginForm;
