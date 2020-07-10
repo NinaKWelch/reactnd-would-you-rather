@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { handleAddQuestion } from '../actions/questions';
 
-const QuestionForm = () => {
-    const [optionOne, setOptionOne] = useState('');
-    const [optionTwo, setOptionTwo] = useState('');
+const QuestionForm = props => {
+    const [optionOne, setOptionOne] = useState('')
+    const [optionTwo, setOptionTwo] = useState('')
 
     const handleSubmit = event => {
-        // TODO: add question to store
+        event.preventDefault()
+
+        props.handleAddQuestion(optionOne, optionTwo)
+
+        setOptionOne('')
+        setOptionTwo('')
     }
 
     return (
@@ -17,6 +24,7 @@ const QuestionForm = () => {
                     value={optionOne}
                     onChange={event => setOptionOne(event.target.value)}
                     placeholder="Enter option one question"
+                    required
                 />
             </div>
             <div>
@@ -24,7 +32,8 @@ const QuestionForm = () => {
                     type="text"
                     value={optionTwo}
                     onChange={event => setOptionTwo(event.target.value)}
-                    placeholder="Enter option one question"
+                    placeholder="Enter option two question"
+                    required
                 />
             </div>
             
@@ -32,5 +41,5 @@ const QuestionForm = () => {
         </form>
     );
 }
-
-export default QuestionForm;
+  
+export default connect(null, { handleAddQuestion })(QuestionForm);

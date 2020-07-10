@@ -2,24 +2,28 @@ import React from 'react';
 import CardTemplate from './CardTemplate';
 import StatsTemplate from './StatsTemplate';
 
-const QuestionResult = ({ question }) => {
+const QuestionResult = ({ question, authedUser }) => {
+    const { name, avatar, optionOne, optionTwo } = question
+
+    const total = optionOne.votes.length + optionTwo.votes.length;
+
     return (
         <CardTemplate
-            title={`Asked by ${question.author}:`}
-            avatar={question.avatarURL}
+            title={`Asked by ${name}:`}
+            avatar={avatar}
         >
             <StatsTemplate
-                votes="1"
-                totalVotes="3"
-                text={question.optionOne.text}
-                selected={true}
+                votes={optionOne.votes.length}
+                totalVotes={total}
+                text={optionOne.text}
+                selected={optionOne.votes.includes(authedUser)}
             />
 
             <StatsTemplate
-                votes="2"
-                totalVotes="3"
-                text={question.optionTwo.text}
-                selected={false}
+                votes={optionTwo.votes.length}
+                totalVotes={total}
+                text={optionTwo.text}
+                selected={optionTwo.votes.includes(authedUser)}
             />
         </CardTemplate>
     );

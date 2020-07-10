@@ -1,11 +1,12 @@
 import React from 'react';
 
-const ActiveUser = ({ user }) => {
+const ActiveUser = ({ authedUser }) => {
     return (
         <div>
-            <span>Hi {user}!</span> | <a href="/">Logout</a>
+            <span>Hi {authedUser.name}!</span> | <a href="/">Logout</a>
         </div>
     );
 }
 
+  
 export default ActiveUser;

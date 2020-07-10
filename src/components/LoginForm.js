@@ -1,20 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser'
 
-const LoginForm = ({ users }) => {
-    const handleChange = event => {
-        alert('Logged in as ' + event.target.value)
+const LoginForm = ({ users, setAuthedUser }) => {
+    const handleChange = e => {
+        const id = e.target.value
+        setAuthedUser(id)
     }
+
+    const userIds = Object.keys(users)
 
     return (
         <select name="users" onChange={handleChange}>
             <option defaulvalue="true">Select user</option>
-            {users.map(user => (
-                <option key={user.id} value={user.name}>
-                    {user.name}
+            {userIds.map(id => (
+                <option key={id} value={id}>
+                    {users[id].name}
                 </option>
             ))}
         </select>
     );
 }
-
-export default LoginForm;
+  
+export default connect(null, { setAuthedUser })(LoginForm);

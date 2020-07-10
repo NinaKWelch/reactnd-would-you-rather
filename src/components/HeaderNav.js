@@ -1,11 +1,15 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 const HeaderNav = () => {
+    const link = {
+        padding: '0 10px'
+    }
     return (
         <ul>
-            <li>Home</li>
-            <li>New Question</li>
-            <li>Leader Board</li>
+            <NavLink to="/" style={link}>Home</NavLink>
+            <NavLink to="/add" style={link}>New Question</NavLink>
+            <NavLink to="/leaderboard" style={link}>Leader Board</NavLink>
         </ul>
     );
 }

@@ -9,11 +9,11 @@ const UserCard = ({ user }) => {
                 <div>
                     <div>
                         <p>Answered questions</p>
-                        <span>{user.questions.answered}</span>
+                        <span>{user.answers}</span>
                     </div>
                     <div>
                         <p>Created questions</p>
-                        <span>{user.questions.created}</span>
+                        <span>{user.questions}</span>
                     </div>
                 </div>
             </div>
