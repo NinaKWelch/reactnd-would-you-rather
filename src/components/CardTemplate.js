@@ -1,14 +1,20 @@
 import React from 'react';
+import { Card, Image } from 'react-bootstrap';
 
 const CardTemplate = ({ children, title, avatar, name }) => {
     return (
-        <div style={{ border: '1px solid gray' }}>
-            <div>
-                <h3>{title}</h3>
-            </div>
-            <img src={avatar} alt={name} />
-            <div>{children}</div>
-        </div>
+        <Card>
+            <Card.Header>{title}</Card.Header>
+            <Card.Body className="text-center">
+                <Image
+                    className="mb-4"
+                    src={avatar}
+                    alt={name}
+                    fluid
+                />
+                {children}
+            </Card.Body>
+        </Card>
     );
 }
 

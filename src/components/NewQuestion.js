@@ -1,13 +1,17 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
+import PageTemplate from './PageTemplate'
 import QuestionForm from './QuestionForm';
 
 const NewQuestion = () => {
     return (
-        <div style={{ border: '1px solid gray'}}>
-            <h2>Create a new question</h2>
-            <p>Complete the question</p>
-            <QuestionForm />
-        </div>
+        <PageTemplate>
+            <Col className="text-center" as="h2" sm={12}>Create a new question</Col>
+            <Col className="text-center" as="p" sm={12}>Complete the question</Col>
+            <Col sm={12} md={{ span: 8, offset: 2 }}>
+                <QuestionForm />
+            </Col>
+        </PageTemplate>   
     );
 }
 

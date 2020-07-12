@@ -1,21 +1,24 @@
 import React from 'react';
+import { Row, Col, Card, ProgressBar, Badge } from 'react-bootstrap';
 
 const StatsTemplate = ({ votes, totalVotes, text, selected }) => {
+    const percentage = (votes / totalVotes) * 100
+
     return (
-        <div style={{ border: '1px solid gray', margin: 20, padding: 20 }}>
-            {selected && <span>Your pick</span>}
-            <h4>{`Would you rather ${text}?`}</h4>
-            <div style={{ border: '1px solid gray', width: 300, height: 30 }}>
-                <div
-                    style={{
-                        background: 'gray',
-                        width: `calc((100% / ${totalVotes}) * ${votes})`,
-                        height: 30 
-                    }}
-                />
-            </div>
-            <p>{`${votes} out of ${totalVotes} votes`}</p>
-        </div>
+        <Row className="mb-4">
+            <Col as={Card.Text} className="text-left">
+                {`Would you rather ${text}?`}
+            </Col>
+            <Col xs="auto" as={Card.Text}>
+                {selected && <Badge variant="info">Your pick</Badge>}
+            </Col>
+            <Col xs={12}>
+                <ProgressBar now={percentage} />
+                <Card.Text>
+                    {`${votes} out of ${totalVotes} votes`}
+                </Card.Text>
+            </Col>
+        </Row>
     );
 }
 

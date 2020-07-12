@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { formatQuestion } from '../utils/helpers';
 import { handleAnswerQuestion } from '../actions/users';
+import { Col, Card, Form, Button } from 'react-bootstrap';
+import PageTemplate from './PageTemplate'
 import QuestionResult from './QuestionResult'
 import CardTemplate from './CardTemplate';
 
@@ -38,39 +40,47 @@ const Question = props => {
     }
 
     return (
-        <CardTemplate
-            title={`${name} asks:`}
-            avatar={avatar}
-        >
-            <h4>Would you rather...</h4>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="radio"
-                        id="optionOne"
-                        name="options"
-                        value="optionOne"
-                        onChange={handleOptionChange}
-                        checked={option === "optionOne"}
-                    />
-                    <label htmlFor="optionOne">{optionOne.text}</label>                 
-                </div>
-
-                <div>
-                    <input
-                        type="radio"
-                        id="optionTwo"
-                        name="options"
-                        value="optionTwo"
-                        onChange={handleOptionChange}
-                        checked={option === 'optionTwo'}
-                    />
-                    <label htmlFor="optionTwo">{optionTwo.text}</label>
-                </div>
-            
-                <input type="submit" value="Submit" />
-            </form>
-        </CardTemplate>
+        <PageTemplate>
+            <Col
+                md={{ span: 8, offset: 2 }}
+                lg={{ span: 6, offset: 3 }}
+            >
+                <CardTemplate
+                    title={`${name} asks:`}
+                    avatar={avatar}
+                >
+                    <Card.Text as="h4" className="mb-4">
+                        Would you rather...
+                    </Card.Text>
+                    <Form
+                        className="text-left"
+                        onSubmit={handleSubmit}
+                    >
+                        <Form.Check
+                            className="mb-3"
+                            type="radio"
+                            id="optionOne"
+                            label={optionOne.text}
+                            name="options"
+                            value="optionOne"
+                            onChange={handleOptionChange}
+                            checked={option === "optionOne"}
+                        />
+                        <Form.Check
+                            className="mb-3"
+                            type="radio"
+                            id="optionTwo"
+                            label={optionTwo.text}
+                            name="options"
+                            value="optionTwo"
+                            onChange={handleOptionChange}
+                            checked={option === 'optionTwo'}
+                        />
+                        <Button type="submit" block>Submit</Button>
+                    </Form>
+                </CardTemplate>
+            </Col>
+        </PageTemplate>
     );
 };
 

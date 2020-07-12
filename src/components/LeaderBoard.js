@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PageTemplate from './PageTemplate';
 import UserCard from './UserCard';
 
 const LeaderBoard = ({ users }) => {
@@ -28,11 +29,11 @@ const LeaderBoard = ({ users }) => {
 
  
     return (
-        <ul style={{ listStyle: 'none' }}>
+        <PageTemplate>
             {userData.map(user => (
                 <UserCard key={user.id} user={user} />
             ))}
-        </ul>
+        </PageTemplate>
     );
 }
 

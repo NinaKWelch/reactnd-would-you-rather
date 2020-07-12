@@ -1,29 +1,42 @@
 import React from 'react';
+import { Row, Col, Card, Image } from 'react-bootstrap';
 
 const UserCard = ({ user }) => {
     return (
-        <li style={{ border: '1px solid gray', margin: 20, padding: 20 }}>
-            <img src={user.avatarURL} alt={user.name} />
-            <div>
-                <h3>{user.name}</h3>
-                <div>
-                    <div>
-                        <p>Answered questions</p>
-                        <span>{user.answers}</span>
-                    </div>
-                    <div>
-                        <p>Created questions</p>
-                        <span>{user.questions}</span>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <h4>Score</h4>
-                    <div>{user.score}</div>
-                </div>
-            </div>
-        </li>
+        <Col
+            xs={12}
+            md={{ span: 10, offset: 1 }}
+            lg={{ span: 8, offset: 2 }}
+            className="mb-4"
+        >
+            <Card className="text-center">
+                <Row as={Card.Body}>
+                    <Col xs={12} md={4}>
+                        <Image
+                            src={user.avatarURL}
+                            alt={user.name}
+                            fluid
+                        />
+                    </Col>
+                    <Col xs={12} md={8} className="text-left">
+                        <Card.Title className="my-4">
+                            {user.name}
+                        </Card.Title>
+                        <Row className="text-left">
+                            <Col as={Card.Text} >Answered questions</Col>
+                            <Col as={Card.Text} xs="auto">{user.answers}</Col>
+                        </Row>
+                        <Row className="text-left">
+                            <Col as={Card.Text} >Created questions</Col>
+                            <Col as={Card.Text} xs="auto">{user.questions}</Col>
+                        </Row>
+                    </Col>        
+                </Row>
+                <Card.Footer>
+                    Score: {user.score}
+                </Card.Footer>
+            </Card>     
+        </Col>
     );
 }
 

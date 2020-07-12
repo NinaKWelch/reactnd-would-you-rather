@@ -1,12 +1,12 @@
 import React from 'react';
+import { Navbar } from 'react-bootstrap';
 
 const ActiveUser = ({ authedUser }) => {
     return (
-        <div>
-            <span>Hi {authedUser.name}!</span> | <a href="/">Logout</a>
-        </div>
+        <Navbar.Text>
+            Hi {authedUser.name}! | <a href="/">Logout</a>
+        </Navbar.Text>
     );
 }
 
-  
 export default ActiveUser;
