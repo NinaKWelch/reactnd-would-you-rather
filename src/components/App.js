@@ -1,71 +1,69 @@
-import React, { useEffect, Fragment } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import LoadingBar from 'react-redux-loading';
 import { handleInitialData } from '../actions/shared';
-import LoadingBar from 'react-redux-loading'
 import Header from './Header';
 import LoginForm from './LoginForm';
 import Home from './Home';
 import NewQuestion from './NewQuestion';
 import Question from './Question';
 import LeaderBoard from './LeaderBoard';
+import NoMatch from './NoMatch';
 
-const App = props => {
+const App = (props) => {
   useEffect(() => {
-    props.handleInitialData()
-   }, [] )
+    props.handleInitialData();
+  }, []);
 
-  const { authedUser, questions, users } = props
+  const { authedUser, questions, users } = props;
 
   return (
     <Router>
-      <Fragment>
+      <>
+        <Header authedUser={authedUser} />
         <LoadingBar />
-
-        <div>
-          <Header authedUser={authedUser} />
-          {authedUser &&
+        {authedUser
+          ? (
             <Switch>
               <Route
                 path="/questions/:id"
                 render={({ match }) => (
                   <Question id={match.params.id} />
-                )} 
+                )}
               />
-
               <Route path="/add">
                 <NewQuestion />
               </Route>
-
               <Route path="/leaderboard">
                 <LeaderBoard users={users} />
               </Route>
-
               <Route exact path="/">
-                <Home questions={questions} authedUser={authedUser} />
+                <Home
+                  questions={questions}
+                  authedUser={authedUser}
+                />
+              </Route>
+              <Route>
+                <NoMatch />
               </Route>
             </Switch>
-          }
-          
-          {!authedUser &&
+          ) : (
             <Switch>
               <Route path="/">
                 <LoginForm users={users} />
               </Route>
             </Switch>
-          }
-        </div>
-      </Fragment>
+          )}
+      </>
     </Router>
   );
-}
-
-function mapStateToProps ({ authedUser, questions, users }) {
-  return {
-    authedUser: users[authedUser],
-    questions,
-    users
-  }
 };
+
+const mapStateToProps = ({ authedUser, questions, users }) => ({
+  authedUser: users[authedUser],
+  questions,
+  users,
+});
 
 export default connect(mapStateToProps, { handleInitialData })(App);
