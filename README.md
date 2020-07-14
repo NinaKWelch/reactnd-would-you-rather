@@ -4,7 +4,7 @@
 
 Would You Rather is a web app where you can aswer to questions and pose your own.
 
-The more questions you create and answer to, the better the score.
+The more questions you create and answer to, the better your score.
 
 ## Screenshots
 
@@ -21,7 +21,7 @@ The more questions you create and answer to, the better the score.
 
 2. Navigate to the project root folder from command line
 
-3. Run `npm install` to install project dependedencies
+3. Run `npm install` to install project dependencies
 
 4. Run `npm start` to start the project on your browser
 
