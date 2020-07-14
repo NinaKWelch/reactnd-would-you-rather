@@ -11,9 +11,12 @@ const Header = ({ authedUser }) => (
     bg="light"
   >
     <Navbar.Brand>Would You Rather</Navbar.Brand>
+
     <Navbar.Toggle aria-controls="navbar-nav" />
+
     <Navbar.Collapse id="navbar-nav">
       <HeaderNav />
+
       {authedUser && <ActiveUser authedUser={authedUser} />}
     </Navbar.Collapse>
   </Navbar>

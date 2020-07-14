@@ -4,18 +4,29 @@ import {
 } from 'react-bootstrap';
 import QuestionList from './QuestionList';
 
-const Home = ({ questions, authedUser }) => {
+const Home = ({ questionIds, authedUser }) => {
   const [value, setValue] = useState('unanswered');
-
-  const questionIds = Object.keys(questions);
   const answeredIds = Object.keys(authedUser.answers);
 
-  const filterArr = (arr) => {
-    const newArr = [];
+  /* create an array of asnwered question ids
+  * from question ids array
+  */
+  const filterAswered = (arr) => {
+    const answered = [];
 
-    arr.forEach((a) => (answeredIds.includes(a) ? '' : newArr.push(a)));
+    arr.forEach((a) => (answeredIds.includes(a) ? answered.push(a) : ''));
+    return answered;
+  };
 
-    return newArr;
+  /* create an array of unasnwered question ids
+  * from question ids array
+  */
+  const filterUnaswered = (arr) => {
+    const unanswered = [];
+
+    arr.forEach((a) => (answeredIds.includes(a) ? '' : unanswered.push(a)));
+
+    return unanswered;
   };
 
   return (
@@ -32,6 +43,7 @@ const Home = ({ questions, authedUser }) => {
             Unanswered Questions
           </Button>
         </Col>
+
         <Col>
           <Button
             variant="outline-info"
@@ -44,10 +56,11 @@ const Home = ({ questions, authedUser }) => {
           </Button>
         </Col>
       </Row>
+
       <QuestionList
         questionIds={value === 'answered'
-          ? answeredIds
-          : filterArr(questionIds)}
+          ? filterAswered(questionIds)
+          : filterUnaswered(questionIds)}
       />
     </Container>
   );

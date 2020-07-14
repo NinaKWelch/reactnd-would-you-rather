@@ -14,11 +14,14 @@ const StatsTemplate = ({
       <Col as={Card.Text} className="text-left">
         {`Would you rather ${text}?`}
       </Col>
+
       <Col xs="auto" as={Card.Text}>
         {selected && <Badge variant="info">Your pick</Badge>}
       </Col>
+
       <Col xs={12}>
         <ProgressBar now={percentage} variant="info" />
+
         <Card.Text>
           {`${votes} out of ${totalVotes} votes`}
         </Card.Text>

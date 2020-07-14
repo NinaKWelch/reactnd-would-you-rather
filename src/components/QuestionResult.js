@@ -10,6 +10,7 @@ const QuestionResult = ({ question, authedUser }) => {
     name, avatar, optionOne, optionTwo,
   } = question;
 
+  // calculate total votes
   const total = optionOne.votes.length + optionTwo.votes.length;
 
   return (

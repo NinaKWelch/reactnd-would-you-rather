@@ -9,9 +9,9 @@ import userIcon from '../img/usericon.png';
 const LoginForm = (props) => {
   const { users } = props;
 
+  // login the selected user
   const handleChange = (e) => {
     const id = e.target.value;
-
     props.setAuthedUser(id);
   };
 
@@ -22,6 +22,7 @@ const LoginForm = (props) => {
       <Col xs={12} className="text-center">
         <Image src={userIcon} alt="user avatar" fluid />
       </Col>
+
       <Col
         as={Form}
         xs={12}
@@ -32,6 +33,7 @@ const LoginForm = (props) => {
           <Form.Label as="h4" className="my-4">
             Sign In
           </Form.Label>
+
           <Form.Control
             as="select"
             name="users"

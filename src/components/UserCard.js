@@ -20,20 +20,26 @@ const UserCard = ({ user }) => (
             fluid
           />
         </Col>
+
         <Col xs={12} md={8} className="text-left">
           <Card.Title className="my-4">
             {user.name}
           </Card.Title>
+
           <Row className="text-left">
             <Col as={Card.Text}>Answered questions</Col>
+
             <Col as={Card.Text} xs="auto">{user.answers}</Col>
           </Row>
+
           <Row className="text-left">
             <Col as={Card.Text}>Created questions</Col>
+
             <Col as={Card.Text} xs="auto">{user.questions}</Col>
           </Row>
         </Col>
       </Row>
+
       <Card.Footer>
         Score:
         {' '}

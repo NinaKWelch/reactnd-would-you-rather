@@ -4,7 +4,7 @@ import { receiveUsers } from './users';
 import { receiveQuestions } from './questions';
 import { setAuthedUser } from './authedUser';
 
-const AUTHED_ID = 'johndoe';
+const AUTHED_ID = null;
 
 // eslint-disable-next-line import/prefer-default-export
 export const handleInitialData = () => (dispatch) => {

@@ -15,11 +15,14 @@ const Question = (props) => {
 
   const { question, authedUser } = props;
 
+  // add users vote to the correct votes array
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // update the votes - client side
     question[option].votes.push(authedUser);
 
+    // update the votes - server side
     props.handleAnswerQuestion({
       authedUser,
       qid: question.id,
@@ -32,7 +35,7 @@ const Question = (props) => {
   if (question === null) {
     return (
       <PageTemplate>
-        <Col as="p">This question doesn't exist.</Col>
+        <Col as="p">This question doesn&apos;t exist.</Col>
       </PageTemplate>
     );
   }
@@ -94,10 +97,6 @@ const Question = (props) => {
   );
 };
 
-Question.propTypes = {
-  handleAnswerQuestion: PropTypes.func.isRequired,
-};
-
 function mapStateToProps({ authedUser, users, questions }, { id }) {
   const question = questions[id];
 
@@ -107,5 +106,9 @@ function mapStateToProps({ authedUser, users, questions }, { id }) {
       ? formatQuestion(question, users[question.author]) : null,
   };
 }
+
+Question.propTypes = {
+  handleAnswerQuestion: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, { handleAnswerQuestion })(Question);

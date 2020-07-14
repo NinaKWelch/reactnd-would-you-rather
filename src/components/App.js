@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading';
@@ -12,16 +13,18 @@ import LeaderBoard from './LeaderBoard';
 import NoMatch from './NoMatch';
 
 const App = (props) => {
+  // get data
   useEffect(() => {
     props.handleInitialData();
   }, []);
 
-  const { authedUser, questions, users } = props;
+  const { authedUser, questionIds, users } = props;
 
   return (
     <Router>
       <>
         <Header authedUser={authedUser} />
+
         <LoadingBar />
         {authedUser
           ? (
@@ -32,18 +35,22 @@ const App = (props) => {
                   <Question id={match.params.id} />
                 )}
               />
+
               <Route path="/add">
                 <NewQuestion />
               </Route>
+
               <Route path="/leaderboard">
                 <LeaderBoard users={users} />
               </Route>
+
               <Route exact path="/">
                 <Home
-                  questions={questions}
+                  questionIds={questionIds}
                   authedUser={authedUser}
                 />
               </Route>
+
               <Route>
                 <NoMatch />
               </Route>
@@ -60,10 +67,21 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = ({ authedUser, questions, users }) => ({
-  authedUser: users[authedUser],
-  questions,
-  users,
-});
+const mapStateToProps = ({ authedUser, questions, users }) => {
+  // sort objects by property
+  const sortByLatest = (obj, p) => Object.keys(obj).sort(
+    (a, b) => obj[b][p] - obj[a][p],
+  );
+
+  return {
+    authedUser: users[authedUser],
+    questionIds: sortByLatest(questions, 'timestamp'),
+    users,
+  };
+};
+
+App.propTypes = {
+  handleInitialData: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, { handleInitialData })(App);

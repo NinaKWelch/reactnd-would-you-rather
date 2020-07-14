@@ -7,6 +7,7 @@ const CardTemplate = ({
 }) => (
   <Card>
     <Card.Header>{title}</Card.Header>
+
     <Card.Body className="text-center">
       <Image
         className="mb-4"

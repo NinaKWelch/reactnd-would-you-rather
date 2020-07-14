@@ -5,14 +5,19 @@ import UserCard from './UserCard';
 const LeaderBoard = ({ users }) => {
   const [userData, setUserData] = useState([]);
 
-  const sortArray = (arr) => {
-    arr.sort((a, b) => b.score - a.score);
+  // sort arr of objects by property
+  const sortArray = (arr, p) => {
+    arr.sort((a, b) => b[p] - a[p]);
   };
 
   useEffect(() => {
     const userIds = Object.keys(users);
     const arr = [];
 
+    /**
+    * create an array of objects from users
+    * and assign it to userData
+    */
     userIds.forEach((id) => {
       const user = users[id];
 
@@ -24,7 +29,7 @@ const LeaderBoard = ({ users }) => {
       });
     });
 
-    sortArray(arr);
+    sortArray(arr, 'score');
     setUserData(arr);
   }, [users]);
 

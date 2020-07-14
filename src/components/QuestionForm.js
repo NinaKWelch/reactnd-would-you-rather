@@ -11,6 +11,7 @@ const QuestionForm = (props) => {
   const [optionOne, setOptionOne] = useState('');
   const [optionTwo, setOptionTwo] = useState('');
 
+  // add aquestion to questions object
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -19,16 +20,19 @@ const QuestionForm = (props) => {
     setOptionOne('');
     setOptionTwo('');
 
+    // return to homepage
     history.push('/');
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Text as="h5">Would you rather...</Form.Text>
+
       <Form.Group>
         <Form.Label htmlFor="optionOneInput" srOnly>
           Option one question
         </Form.Label>
+
         <Form.Control
           className="mt-3"
           type="text"
@@ -38,9 +42,11 @@ const QuestionForm = (props) => {
           placeholder="Enter option one question"
           required
         />
+
         <Form.Label htmlFor="optionTwoInput" srOnly>
           Option two question
         </Form.Label>
+
         <Form.Control
           className="mt-3"
           type="text"
@@ -51,6 +57,7 @@ const QuestionForm = (props) => {
           required
         />
       </Form.Group>
+
       <Button type="submit" variant="info" block>
         Submit
       </Button>

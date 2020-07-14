@@ -5,9 +5,11 @@ import { Col, Card } from 'react-bootstrap';
 import CardTemplate from './CardTemplate';
 
 const QuestionListItem = (props) => {
-  const { name, avatarURL } = props.user;
-  const { optionOne, id } = props.question;
+  const { user, question } = props;
+  const { name, avatarURL } = user;
+  const { optionOne, id } = question;
 
+  // shorten the answer for initial display
   const showTeaser = (str) => {
     if (str.length > 12) {
       return str.slice(0, 12);
@@ -28,6 +30,7 @@ const QuestionListItem = (props) => {
           {showTeaser(optionOne.text)}
           ...
         </Card.Text>
+
         <Card.Link
           as={Link}
           to={`/questions/${id}`}
