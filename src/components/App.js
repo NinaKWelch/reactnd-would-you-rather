@@ -16,6 +16,7 @@ const App = (props) => {
   // get data
   useEffect(() => {
     props.handleInitialData();
+  // eslint-disable-next-line
   }, []);
 
   const { authedUser, questionIds, users } = props;
