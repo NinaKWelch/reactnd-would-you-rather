@@ -7,7 +7,7 @@ import { logoutUser } from '../actions/authedUser';
 
 const ActiveUser = (props) => {
   const { authedUser, location } = props;
-  
+
   return (
     <Navbar.Text className="ml-md-4">
       <small>{`Hi ${authedUser.name}!`}</small>
