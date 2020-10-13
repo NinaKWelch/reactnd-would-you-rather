@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/reactnd-would-you-rather/static/js/main.909f9970.chunk.js",
+    "main.js.map": "/reactnd-would-you-rather/static/js/main.909f9970.chunk.js.map",
+    "runtime-main.js": "/reactnd-would-you-rather/static/js/runtime-main.e3400f0d.js",
+    "runtime-main.js.map": "/reactnd-would-you-rather/static/js/runtime-main.e3400f0d.js.map",
+    "static/js/2.2fda0e06.chunk.js": "/reactnd-would-you-rather/static/js/2.2fda0e06.chunk.js",
+    "static/js/2.2fda0e06.chunk.js.map": "/reactnd-would-you-rather/static/js/2.2fda0e06.chunk.js.map",
+    "index.html": "/reactnd-would-you-rather/index.html",
+    "precache-manifest.f0fe39d260e384f06b56827a4c1efcb1.js": "/reactnd-would-you-rather/precache-manifest.f0fe39d260e384f06b56827a4c1efcb1.js",
+    "service-worker.js": "/reactnd-would-you-rather/service-worker.js",
+    "static/js/2.2fda0e06.chunk.js.LICENSE.txt": "/reactnd-would-you-rather/static/js/2.2fda0e06.chunk.js.LICENSE.txt",
+    "static/media/usericon.png": "/reactnd-would-you-rather/static/media/usericon.057da307.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e3400f0d.js",
+    "static/js/2.2fda0e06.chunk.js",
+    "static/js/main.909f9970.chunk.js"
+  ]
+}
