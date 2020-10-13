@@ -6,6 +6,10 @@ Would You Rather is a web app where you can aswer to questions and pose your own
 
 The more questions you create and answer to, the better your score.
 
+## Website
+
+[https://ninakwelch.github.io/reactnd-would-you-rather](https://ninakwelch.github.io/reactnd-would-you-rather)
+
 ## Screenshots
 
 ![](https://res.cloudinary.com/ninaw/image/upload/c_scale,w_375/v1594736814/would_you_rather_1_krwqat.png)
