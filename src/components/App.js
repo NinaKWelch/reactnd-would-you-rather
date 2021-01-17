@@ -22,7 +22,9 @@ const App = (props) => {
   const { authedUser, questionIds, users } = props;
 
   return (
-    <Router basename={'/reactnd-would-you-rather'}>
+    <Router
+      basename={process.env.PUBLIC_URL}
+    >
       <>
         <Header authedUser={authedUser} />
 
