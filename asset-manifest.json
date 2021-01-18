@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/reactnd-would-you-rather/static/js/main.1761fe48.chunk.js",
-    "main.js.map": "/reactnd-would-you-rather/static/js/main.1761fe48.chunk.js.map",
+    "main.js": "/reactnd-would-you-rather/static/js/main.60ae5988.chunk.js",
+    "main.js.map": "/reactnd-would-you-rather/static/js/main.60ae5988.chunk.js.map",
     "runtime-main.js": "/reactnd-would-you-rather/static/js/runtime-main.e3400f0d.js",
     "runtime-main.js.map": "/reactnd-would-you-rather/static/js/runtime-main.e3400f0d.js.map",
     "static/js/2.2fda0e06.chunk.js": "/reactnd-would-you-rather/static/js/2.2fda0e06.chunk.js",
     "static/js/2.2fda0e06.chunk.js.map": "/reactnd-would-you-rather/static/js/2.2fda0e06.chunk.js.map",
     "index.html": "/reactnd-would-you-rather/index.html",
-    "precache-manifest.09253c06e2461144a8d4e3a1d4845d84.js": "/reactnd-would-you-rather/precache-manifest.09253c06e2461144a8d4e3a1d4845d84.js",
+    "precache-manifest.452ea7c7c8e56d2b2653bf11695f1a5d.js": "/reactnd-would-you-rather/precache-manifest.452ea7c7c8e56d2b2653bf11695f1a5d.js",
     "service-worker.js": "/reactnd-would-you-rather/service-worker.js",
     "static/js/2.2fda0e06.chunk.js.LICENSE.txt": "/reactnd-would-you-rather/static/js/2.2fda0e06.chunk.js.LICENSE.txt",
     "static/media/usericon.png": "/reactnd-would-you-rather/static/media/usericon.057da307.png"
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.e3400f0d.js",
     "static/js/2.2fda0e06.chunk.js",
-    "static/js/main.1761fe48.chunk.js"
+    "static/js/main.60ae5988.chunk.js"
   ]
 }
