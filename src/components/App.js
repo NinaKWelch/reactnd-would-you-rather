@@ -23,7 +23,7 @@ const App = (props) => {
 
   return (
     <Router
-      basename={/reactnd-would-you-rather}
+      basename={process.env.PUBLIC_URL}
     >
       <>
         <Header authedUser={authedUser} />

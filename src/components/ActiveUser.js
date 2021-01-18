@@ -13,7 +13,7 @@ const ActiveUser = (props) => {
       <small>{`Hi ${authedUser.name}!`}</small>
       {' | '}
       <a
-        href={location.pathname}
+        href={process.env.PUBLIC_URL + location.pathname}
         onClick={() => logoutUser(authedUser)}
       >
         Logout
